@@ -84,3 +84,20 @@ $(document).ready(()=>{
         .then(function(result){console.log(result)})
         .then(()=>{console.log('all the data was fetched!')})
 })
+
+
+// add function
+function addNumber (x,y) {
+    return new Promise (function (resolve, reject) {
+        let sum = x + y
+        if (typeof x === 'number' && typeof y === 'number') {
+            resolve(sum)
+        } else {
+            let message = new Error('Could not add the two values!')
+            reject(message)
+        }
+    })
+}
+addNumber(3,10)
+    .then((answer)=>{console.log('This is the answer: '+ answer)})
+    .catch((error)=>{console.log(error)})
